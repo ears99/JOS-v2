@@ -13,7 +13,7 @@ align 4
 
 align 16
 stack_bttm:
-  resb 16384 ;16 KB
+  resb 16384 ;16 Kilobyte stack 
 stack_top:
 
 section .text

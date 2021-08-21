@@ -2,6 +2,14 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#if defined(__linux__)
+#error "No cross compiler detected!"
+#endif
+
+#if !defined(__i386__)
+#error "This needs to be compiled with a ix86-elf compiler!"
+#endif
+
 enum vga_color {
   VGA_COLOR_BLACK = 0,
   VGA_COLOR_BLUE = 1,

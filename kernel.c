@@ -1,3 +1,5 @@
+//TODO: add newline support
+
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -37,6 +39,7 @@ static inline uint8_t vgaEntry(unsigned char uc, uint8_t color) {
   return (uint16_t)uc | (uint16_t) color << 8;
 }
 
+//implementation of strlen, which returns the size of a string, excluding the \0
 size_t stringLen(const char* string) {
   size_t length = 0;
   while(string[length])
@@ -53,8 +56,9 @@ uint8_t terminalColor;
 uint16_t* terminalBuffer;
 
 void terminal_init(void) {
-  terminalRow = 0;
-  terminalCol = 0;
+  terminalRow = 0; //Row
+  terminalCol = 0; //Column
+  //white on black terminal color
   terminalColor = vgaEntryColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
   terminalBuffer = (uint16_t*) 0xB8000;
   for(size_t y = 0; y < VGA_HEIGHT; y++) {

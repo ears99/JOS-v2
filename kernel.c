@@ -1,4 +1,6 @@
 //TODO: add newline support
+//TODO: add keyboard support
+//TODO: write command interpreter
 
 #include <stdbool.h>
 #include <stddef.h>

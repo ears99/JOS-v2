@@ -13,7 +13,7 @@ align 4
 
 align 16
 stack_bttm:
-  resb 16384 ;16 Kilobyte stack 
+  resb 16384 ;16 Kilobyte stack
 stack_top:
 
 section .text
@@ -21,11 +21,11 @@ section .text
   ;_start is where the linker script specfies as the entry point to the kernel
 _start:
   mov esp, stack_top ;set up the stack
-  extern kernel_main
-  call kernel_main
+  extern kernelMain
+  call kernelMain
   ;if the system has nothing more to do, make it loop forever:
   cli ;disable interrupts
-
+  
 .hang:
     hlt
     jmp .hang
